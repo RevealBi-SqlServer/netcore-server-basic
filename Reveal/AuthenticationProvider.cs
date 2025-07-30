@@ -11,10 +11,13 @@ namespace RevealSdk.Server.Reveal
             RVDashboardDataSource dataSource)
         {        
             IRVDataSourceCredential userCredential = new RVUsernamePasswordDataSourceCredential();
-            
+
+            string username = Environment.GetEnvironmentVariable("DB_USER_NAME");
+            string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
+
             if (dataSource is RVSqlServerDataSource)
             {
-                userCredential = new RVUsernamePasswordDataSourceCredential("", "");
+                userCredential = new RVUsernamePasswordDataSourceCredential(username, password);
             }
             return Task.FromResult(userCredential);
         }
