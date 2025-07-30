@@ -1,0 +1,9 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {},  "containerEnv": {
+  "DB_HOST": "${{ secrets.DB_HOST }}",
+  "DB_DATABASE": "${{ secrets.DB_DATABASE }}",
+  "DB_USER_NAME": "${{ secrets.DB_USER_NAME }}",
+  "DB_PASSWORD": "${{ secrets.DB_PASSWORD }}"
+  }
+}
