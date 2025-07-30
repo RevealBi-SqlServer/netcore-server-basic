@@ -10,7 +10,7 @@ namespace RevealSdk.Server.Reveal
         public Task<IRVDataSourceCredential> ResolveCredentialsAsync(IRVUserContext userContext,
             RVDashboardDataSource dataSource)
         {        
-            IRVDataSourceCredential userCredential = new RVUsernamePasswordDataSourceCredential();
+            IRVDataSourceCredential userCredential = new RVIntegratedAuthenticationCredential();
 
             string username = Environment.GetEnvironmentVariable("DB_USER_NAME");
             string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
