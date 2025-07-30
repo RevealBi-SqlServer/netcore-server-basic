@@ -12,8 +12,14 @@ namespace RevealSdk.Server.Reveal
         {        
             IRVDataSourceCredential userCredential = new RVIntegratedAuthenticationCredential();
 
+            Console.WriteLine("🔍 ResolveCredentialsAsync called");
+
             string username = Environment.GetEnvironmentVariable("DB_USER_NAME");
             string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
+
+            Console.WriteLine($"👤 Username from env: {username}");
+            Console.WriteLine($"🔐 Password is {(string.IsNullOrEmpty(password) ? "missing" : "set")}");
+
 
             if (dataSource is RVSqlServerDataSource)
             {
