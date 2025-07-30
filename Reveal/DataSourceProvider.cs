@@ -57,8 +57,15 @@ namespace RevealSdk.Server.Reveal
         {
             if (dataSource is RVSqlServerDataSource sqlDs)
             {
-                sqlDs.Host = "10.20.8.57";
-                sqlDs.Database = "devtest";
+
+                sqlDs.Host = Environment.GetEnvironmentVariable("DB_HOST");
+                sqlDs.Database = Environment.GetEnvironmentVariable("DB_DATABASE");
+
+                sqlDs.Host = Environment.GetEnvironmentVariable("DB_HOST");
+                sqlDs.Database = Environment.GetEnvironmentVariable("DB_DATABASE");
+                
+                //sqlDs.Host = "10.20.8.57";
+                //sqlDs.Database = "devtest";
                 //sqlDs.Schema = "venus";
             }
             return Task.FromResult(dataSource);
