@@ -29,7 +29,8 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(
             "http://127.0.0.1:5082",
             "http://localhost:3000",
-            "http://127.0.0.1:3000"
+            "http://127.0.0.1:3000",
+            "https://jubilant-halibut-x5gq5w4w657cvj79-3000.app.github.dev/"
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
