@@ -8,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddReveal(builder =>
 {
     builder
-        //.AddSettings(settings =>
-        //{
-        //    settings.License = "eyJhbGciOicCI6IkpXVCJ9.e";
-        //})
+        .AddSettings(settings =>
+        {
+           settings.License = Environment.GetEnvironmentVariable("REVEAL_KEY");
+        })
         .AddAuthenticationProvider<AuthenticationProvider>()
         .AddDataSourceProvider<DataSourceProvider>()
         .AddUserContextProvider<UserContextProvider>()
