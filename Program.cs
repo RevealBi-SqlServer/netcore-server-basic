@@ -24,11 +24,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowDev", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5082")  
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy.WithOrigins(
+            "http://127.0.0.1:5082",
+            "http://localhost:3000",
+            "http://127.0.0.1:3000"
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader();
     });
 });
 
